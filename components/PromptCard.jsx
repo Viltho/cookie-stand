@@ -21,8 +21,8 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   };
 
   const handleCopy = () => {
-    setCopied(post.prompt);
-    navigator.clipboard.writeText(post.prompt);
+    setCopied(post.location);
+    navigator.clipboard.writeText(post.location);
     setTimeout(() => setCopied(false), 3000);
   };
 
@@ -54,18 +54,21 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
         <div className='copy_btn' onClick={handleCopy}>
           <Image
             src={
-              copied === post.prompt
+              copied === post.location
                 ? "/assets/icons/tick.svg"
                 : "/assets/icons/copy.svg"
             }
-            alt={copied === post.prompt ? "tick_icon" : "copy_icon"}
+            alt={copied === post.location ? "tick_icon" : "copy_icon"}
             width={12}
             height={12}
           />
         </div>
       </div>
 
-      <p className='my-4 font-satoshi text-sm text-gray-700'>{post.prompt}</p>
+      <p className="my-4"><span className='font-satoshi font-semibold text-sm text-gray-700'>Location:{" "}</span><span className="my-4 font-satoshi text-sm text-gray-700">{post.location}</span></p>
+      <p className='my-4 font-satoshi text-sm text-gray-700'>Minimum customers per hour:{" "}{post.min}</p>
+      <p className='my-4 font-satoshi text-sm text-gray-700'>Maximum customers per hour:{" "}{post.max}</p>
+      <p className='my-4 font-satoshi text-sm text-gray-700'>Average Cookie Sale:{" "}{post.avg}</p>
       <p
         className='font-inter text-sm blue_gradient cursor-pointer'
         onClick={() => handleTagClick && handleTagClick(post.tag)}

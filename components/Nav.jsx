@@ -28,7 +28,7 @@ const Nav = () => {
           height={30}
           className='object-contain'
         />
-        <p className='logo_text'>Cookie-stand-admin</p>
+        <p className='logo_text'>Cookie-Stand-Admin</p>
       </Link>
 
       {/* Desktop Navigation */}

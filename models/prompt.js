@@ -5,14 +5,26 @@ const PromptSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User',
   },
-  prompt: {
+  location: {
     type: String,
-    required: [true, 'Prompt is required.'],
+    required: [true, 'location is required.'],
   },
   tag: {
     type: String,
     required: [true, 'Tag is required.'],
-  }
+  },
+  min: {
+    type: Number,
+    required: [true, 'Minimum customers is required.'],
+  },
+  max: {
+    type: Number,
+    required: [true, 'Maximum customers is required.'],
+  },
+  avg: {
+    type: Number,
+    required: [true, 'Average number of cookies is required.'],
+  },
 });
 
 const Prompt = models.Prompt || model('Prompt', PromptSchema);

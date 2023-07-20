@@ -7,8 +7,8 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
         <span className='blue_gradient'>{type} Post</span>
       </h1>
       <p className='desc text-left max-w-md'>
-        {type} and share amazing prompts with the world, and let your
-        imagination run wild with any AI-powered platform
+        {type} and share how your cookie stand performed with the world, and let your
+        imagination run wild
       </p>
 
       <form
@@ -17,23 +17,23 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       >
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>
-            Your AI Prompt
+            Your location
           </span>
 
-          <textarea
-            value={post.prompt}
-            onChange={(e) => setPost({ ...post, prompt: e.target.value })}
-            placeholder='Write your post here'
+          <input
+            value={post.location}
+            onChange={(e) => setPost({ ...post, location: e.target.value })}
+            placeholder='Write your location here'
             required
-            className='form_textarea '
+            className='form_input '
           />
         </label>
 
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>
-            Field of Prompt{" "}
+            Cookie Type{" "}
             <span className='font-normal'>
-              (#product, #webdevelopment, #idea, etc.)
+              (#vanilla, #chocolate, #butterscotch, etc.)
             </span>
           </span>
           <input
@@ -41,6 +41,48 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             onChange={(e) => setPost({ ...post, tag: e.target.value })}
             type='text'
             placeholder='#Tag'
+            required
+            className='form_input'
+          />
+        </label>
+
+        <label>
+          <span className='font-satoshi font-semibold text-base text-gray-700'>
+            Minimum Customers per hour
+          </span>
+          <input
+            value={post.min}
+            onChange={(e) => setPost({ ...post, min: e.target.value })}
+            type='text'
+            placeholder='Number'
+            required
+            className='form_input'
+          />
+        </label>
+
+        <label>
+          <span className='font-satoshi font-semibold text-base text-gray-700'>
+            Maximum Customers per hour
+          </span>
+          <input
+            value={post.max}
+            onChange={(e) => setPost({ ...post, max: e.target.value })}
+            type='text'
+            placeholder='Number'
+            required
+            className='form_input'
+          />
+        </label>
+
+        <label>
+          <span className='font-satoshi font-semibold text-base text-gray-700'>
+            Average Cookies per sale
+          </span>
+          <input
+            value={post.avg}
+            onChange={(e) => setPost({ ...post, avg: e.target.value })}
+            type='text'
+            placeholder='Number'
             required
             className='form_input'
           />
