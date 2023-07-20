@@ -11,6 +11,8 @@ This application uses the following:
 
 ## Getting Started
 
+- Don't forget to create a .env file
+
 First, run the development server:
 
 ```bash
