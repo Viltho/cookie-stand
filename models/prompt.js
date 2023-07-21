@@ -14,15 +14,15 @@ const PromptSchema = new Schema({
     required: [true, 'Tag is required.'],
   },
   min: {
-    type: Number,
+    type: String,
     required: [true, 'Minimum customers is required.'],
   },
   max: {
-    type: Number,
+    type: String,
     required: [true, 'Maximum customers is required.'],
   },
   avg: {
-    type: Number,
+    type: String,
     required: [true, 'Average number of cookies is required.'],
   },
 });

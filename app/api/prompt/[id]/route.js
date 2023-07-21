@@ -16,8 +16,9 @@ export const GET = async (request, { params }) => {
 }
 
 export const PATCH = async (request, { params }) => {
-    const { prompt, tag } = await request.json();
-
+    const { location, tag, min, max, avg } = await request.json();
+    
+    console.log(min, max, avg)
     try {
         await connectToDB();
 
@@ -29,8 +30,11 @@ export const PATCH = async (request, { params }) => {
         }
 
         // Update the prompt with new data
-        existingPrompt.prompt = prompt;
+        existingPrompt.location = location;
         existingPrompt.tag = tag;
+        existingPrompt.min = min;
+        existingPrompt.max = max;
+        existingPrompt.avg = avg;
 
         await existingPrompt.save();
 

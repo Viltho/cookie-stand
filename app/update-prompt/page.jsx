@@ -10,7 +10,7 @@ const UpdatePrompt = () => {
   const searchParams = useSearchParams();
   const promptId = searchParams.get("id");
 
-  const [post, setPost] = useState({ prompt: "", tag: "", });
+  const [post, setPost] = useState({ location: "", tag: "", min: "", max: "", avg: ""});
   const [submitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
@@ -19,8 +19,11 @@ const UpdatePrompt = () => {
       const data = await response.json();
 
       setPost({
-        prompt: data.prompt,
+        location: data.location,
         tag: data.tag,
+        min: data.min,
+        max: data.max,
+        avg: data.avg,
       });
     };
 
@@ -37,8 +40,11 @@ const UpdatePrompt = () => {
       const response = await fetch(`/api/prompt/${promptId}`, {
         method: "PATCH",
         body: JSON.stringify({
-          prompt: post.prompt,
+          location: post.location,
           tag: post.tag,
+          min: post.min,
+          max: post.max,
+          avg: post.avg,
         }),
       });
 
